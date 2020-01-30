@@ -111,6 +111,9 @@ body {
     background-repeat: no-repeat;
     background-position: right;     
 }
+.error::placeholder {
+    color: $color_principal;
+}
 
 .successMessage {
     border: 1px solid $color_secundario;

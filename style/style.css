@@ -86,6 +86,9 @@ body {
   background-repeat: no-repeat;
   background-position: right; }
 
+.error::placeholder {
+  color: #ff7a7a; }
+
 .successMessage {
   border: 1px solid #38cc8c;
   background: none; }

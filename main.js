@@ -8,25 +8,36 @@ const firstNameError = document.querySelector("#first-name-error")
 const lastNameError = document.querySelector("#last-name-error")
 const emailError = document.querySelector("#email-error")
 const passwordError = document.querySelector("#password-error")
+const emailMessage = document.querySelector("#email-message-error")
 
 const errorMessage = (input, message) => {
 	message.classList.remove('hidden');
+	input.value = '';
 	input.placeholder = '';
 	input.classList.add('error');
 }
 
 const successMessage = (input, message) => {
+	input.value = '';
 	input.placeholder = '';
 	message.classList.add('hidden');
 	input.classList.add('successMessage');
 }
 
+const emailValidation = (input, message) => {
+	message.classList.remove('hidden');
+	input.value = '';
+	input.placeholder = "email@example.com"
+	input.classList.add('error');
+}
+
 form.onsubmit = e => {
-	e.preventDefault()
-	console.log(userLastName)
+	e.preventDefault();
+
+	const re = /^([a-z\d\.-_]+)@([a-z\d-_]+)\.([a-z]{2,8})([a-z]{2,8})?$/;
+
 	if (!userName.value) {
 		errorMessage(userName, firstNameError);
-
 	} else {
 		successMessage(userName, firstNameError);
 	}
@@ -37,6 +48,8 @@ form.onsubmit = e => {
 	}
 	if (!userEmail.value) {
 		errorMessage(userEmail, emailError);
+	} else if (!re.test(userEmail.value)) {
+		emailValidation(userEmail, emailMessage);
 	} else {
 		successMessage(userEmail, emailError);
 	}
