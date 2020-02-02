@@ -1,6 +1,8 @@
-@mixin flex-column {
+@mixin flex-column($align: null, $justify: null) {
     display: flex;
     flex-direction: column;
+    align-items: $align;
+    justify-content: $justify;
 }
 
 @mixin flex-center {

@@ -34,7 +34,7 @@ const emailValidation = (input, message) => {
 form.onsubmit = e => {
 	e.preventDefault();
 
-	const re = /^([a-z\d\.-_]+)@([a-z\d-_]+)\.([a-z]{2,8})([a-z]{2,8})?$/;
+	const re = /^([a-z\d\._-]+)@([a-z\d-_]+)\.([a-z]{2,8})([a-z]{2,8})?$/;
 
 	if (!userName.value) {
 		errorMessage(userName, firstNameError);
